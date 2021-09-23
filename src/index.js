@@ -19,7 +19,7 @@ function render(){
     todoList.forEach(todo => {
         const listElement = document.createElement('li');
         listElement.classList.add('list-prop');
-        listElement.innerText = todo.task;
+        listElement.innerText = todo.index;
         container.appendChild(listElement);
     });
 }
