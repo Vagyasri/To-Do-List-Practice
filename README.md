@@ -13,7 +13,7 @@ In this project, I built a simple HTML list of To Do tasks. This simple web page
 
 ## Live Demo
 
-[@Live View!!](https://vagyasri.github.io/To-Do-List/)
+[Live View!!](https://vagyasri.github.io/To-Do-List/dist/)
 
 ## Author
 
