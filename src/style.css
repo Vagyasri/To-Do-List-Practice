@@ -2,6 +2,10 @@ body {
   background-color: rgb(221, 217, 217);
 }
 
+.list-container {
+  margin: 0;
+}
+
 #tab {
   background-color: white;
   box-shadow: 10px 10px 10px grey;
@@ -16,9 +20,12 @@ body {
   border-bottom: 1px solid grey;
   padding: 20px;
   margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .add-bar {
+  max-width: 100%;
   width: 90.7%;
 }
 
@@ -26,11 +33,22 @@ input {
   border-style: hidden;
 }
 
-.list-prop {
+.listcont-prop {
   list-style-type: none;
   border-bottom: 1px solid grey;
   padding: 20px;
   margin: 0 0 0 -40px;
+  display: flex;
+}
+
+.list-prop {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.strikethrough:checked {
+  text-decoration: line-through;
 }
 
 .clear {
@@ -42,3 +60,4 @@ input {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
