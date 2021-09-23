@@ -5,13 +5,13 @@ const container = document.querySelector('[data]')
 
 const todoList = [{
     index: 1,
-    task: 'Wash the Dishes',
-    status: true
+    description: 'Wash the Dishes',
+    completed: true
 },
 {
     index: 2,
-    task: 'Complete to-do list Project',
-    status: true
+    description: 'Complete to-do list Project',
+    completed: true
 }];
 
 function render(){
@@ -19,7 +19,7 @@ function render(){
     todoList.forEach(todo => {
         const listElement = document.createElement('li');
         listElement.classList.add('list-prop');
-        listElement.innerText = todo.index;
+        listElement.innerText = todo.description;
         container.appendChild(listElement);
     });
 }
