@@ -6,8 +6,10 @@ const container = document.querySelector('.list-container');
 const newList = document.querySelector('.new-data');
 const newBar = document.querySelector('.add-bar');
 
-const LOCAL_STORAGE_LIST_KEY = 'task.list';
-const todoList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
+const LIST_KEY = 'task.list';
+const SELECT_LIST = 'select.list';
+const todoList = JSON.parse(localStorage.getItem(LIST_KEY)) || [];
+let selectList = localStorage.getItem(SELECT_LIST);
 
 function clear(element) {
   while (element.firstChild) element.removeChild(element.firstChild);
@@ -29,6 +31,9 @@ function render() {
     div.classList.add('listcont-prop');
     listElement.classList.add('list-prop');
     listElement.innerHTML = `${todo.description}<i class="fas fa-ellipsis-v"></i>`;
+    if (todo.index === selectList) {
+      listElement.classList.add('active');
+    }
     div.appendChild(label);
     div.appendChild(listElement);
     label.appendChild(input);
@@ -37,13 +42,21 @@ function render() {
 }
 
 function save() {
-  localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(todoList));
+  localStorage.setItem(LIST_KEY, JSON.stringify(todoList));
+  localStorage.setItem(SELECT_LIST, selectList);
 }
 
 function saveAndRender() {
   save();
   render();
 }
+
+container.addEventListener('click', (e) => {
+  if (e.target.tagName.toLowerCase() === 'li') {
+    selectList = e.target.dataset.listId;
+    saveAndRender();
+  }
+});
 
 render();
 
