@@ -31,6 +31,7 @@ function render() {
     input.id = 'id';
     input.classList.add('strikethrough');
     const listElement = document.createElement('li');
+    listElement.dataset.listId = todo.index;
     div.classList.add('listcont-prop');
     listElement.classList.add('list-prop');
     listElement.innerHTML = `${todo.description}<i class="fas fa-ellipsis-v"></i>`;
