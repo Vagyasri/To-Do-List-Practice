@@ -37,6 +37,11 @@ button {
   transform: rotate(90deg);
 }
 
+.strikethrough,
+i {
+  cursor: pointer;
+}
+
 .listcont-prop {
   list-style-type: none;
   border-bottom: 1px solid grey;

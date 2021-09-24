@@ -3,8 +3,11 @@ import _ from 'lodash';
 import './style.css';
 
 const container = document.querySelector('.list-container');
+const newList = document.querySelector('.new-data');
+const newBar = document.querySelector('.add-bar');
 
-const todoList = [];
+const LOCAL_STORAGE_LIST_KEY = 'task.list';
+const todoList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 
 function clear(element) {
   while (element.firstChild) element.removeChild(element.firstChild);
@@ -33,4 +36,27 @@ function render() {
   });
 }
 
+function save() {
+  localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(todoList));
+}
+
+function saveAndRender() {
+  save();
+  render();
+}
+
 render();
+
+function createList(task) {
+  return { index: Date.now().toString(), description: task, completed: [] };
+}
+
+newList.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const listName = newBar.value;
+  if (listName == null || listName === '') return;
+  const list = createList(listName);
+  newBar.value = null;
+  todoList.push(list);
+  saveAndRender();
+});
