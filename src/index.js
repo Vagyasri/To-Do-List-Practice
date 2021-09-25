@@ -5,6 +5,8 @@ import './style.css';
 const container = document.querySelector('.list-container');
 const newList = document.querySelector('.new-data');
 const newBar = document.querySelector('.add-bar');
+const mainContainer = document.querySelector('.tab');
+const listsHolder = document.querySelector('.listcont-prop');
 
 const LIST_KEY = 'task.list';
 const SELECT_LIST = 'select.list';
@@ -15,8 +17,7 @@ function clear(element) {
   while (element.firstChild) element.removeChild(element.firstChild);
 }
 
-function render() {
-  clear(container);
+function renderLists() {
   todoList.forEach((todo) => {
     const div = document.createElement('div');
     const label = document.createElement('label');
@@ -39,6 +40,11 @@ function render() {
     label.appendChild(input);
     container.appendChild(div);
   });
+}
+
+function render() {
+  clear(container);
+  renderLists();
 }
 
 function save() {
