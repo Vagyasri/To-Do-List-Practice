@@ -24,13 +24,27 @@ body {
   justify-content: space-between;
 }
 
-.add-bar {
-  max-width: 100%;
-  width: 90.7%;
+input,
+button {
+  border-style: hidden;
+  background-color: transparent;
+  color: grey;
+  font-style: italic;
+  outline: none;
 }
 
-input {
-  border-style: hidden;
+.enter {
+  transform: rotate(90deg);
+}
+
+.strikethrough,
+i {
+  cursor: pointer;
+}
+
+li:checked {
+  color: red;
+  text-decoration: line-through;
 }
 
 .listcont-prop {
@@ -45,10 +59,6 @@ input {
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
-
-.strikethrough:checked {
-  text-decoration: line-through;
 }
 
 .clear {
